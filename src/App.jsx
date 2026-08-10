@@ -38,12 +38,15 @@ function App() {
     const root = document.getElementById('root');
     // Allow scroll only on home page and when not transitioning
     if (page === 'home' && !transitioning) {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflowX = 'hidden';
+      document.body.style.overflowY = 'auto';
       document.body.style.height = 'auto';
-      document.documentElement.style.overflow = 'auto';
+      document.documentElement.style.overflowX = 'hidden';
+      document.documentElement.style.overflowY = 'auto';
       document.documentElement.style.height = 'auto';
       if (root) {
-        root.style.overflow = 'visible';
+        root.style.overflowX = 'hidden';
+        root.style.overflowY = 'visible';
         root.style.height = 'auto';
       }
     } else {
