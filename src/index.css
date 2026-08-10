@@ -3421,3 +3421,80 @@ textarea,
 .wipe-active .glowing-title {
   text-shadow: 0 0 16px rgba(34, 211, 238, 0.5);
 }
+
+/* ==========================================================================
+   MOBILE & VIEWPORT RESPONSIVENESS SYSTEM
+   ========================================================================== */
+
+/* 1. Centered Hero Orbit Scaling for Mobile screens */
+@media (max-width: 520px) {
+  .hero-orbit-wrapper {
+    transform: scale(0.68) !important;
+    transform-origin: center !important;
+    margin: -60px 0 !important;
+  }
+}
+@media (max-width: 380px) {
+  .hero-orbit-wrapper {
+    transform: scale(0.58) !important;
+    transform-origin: center !important;
+    margin: -95px 0 !important;
+  }
+}
+
+/* 2. Stats Bar Card Grid Responsiveness */
+@media (max-width: 576px) {
+  .hero-stats-bar-card {
+    flex-direction: column !important;
+    padding: 24px 16px !important;
+    gap: 20px !important;
+    height: auto !important;
+  }
+  .hero-stat-col {
+    flex: 0 0 100% !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    width: 100% !important;
+  }
+  .hero-stat-col .stat-text-group {
+    text-align: left !important;
+    align-items: flex-start !important;
+  }
+}
+
+/* 3. Services Grid item responsiveness */
+@media (max-width: 480px) {
+  .services-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 4. Premium Contact Form layout and fields */
+.premium-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.form-row-two {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+@media (max-width: 576px) {
+  .form-row-two {
+    flex-direction: column !important;
+    gap: 20px;
+  }
+  .contact-form-container {
+    padding: 30px 20px !important;
+  }
+}
+
+/* 5. Mobile Navbar audio controller position and spacing */
+@media (max-width: 1200px) {
+  .navbar-audio-controls {
+    display: flex !important;
+    margin-left: auto !important;
+    margin-right: 16px !important;
+  }
+}

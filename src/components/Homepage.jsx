@@ -620,52 +620,54 @@ export default function Homepage({ targetSection, clearTargetSection, isSoundMut
           <li><button onClick={() => { playClick(); scrollToSection('reviews'); }} onMouseEnter={playHover} className={`nav-btn-link ${activeSection === 'reviews' ? 'active' : ''}`}>Reviews</button></li>
           <li><button onClick={() => { playClick(); scrollToSection('why-choose'); }} onMouseEnter={playHover} className={`nav-btn-link ${activeSection === 'why-choose' ? 'active' : ''}`}>Why Choose INNOXEL</button></li>
           <li><button onClick={() => { playClick(); scrollToSection('contact'); }} onMouseEnter={playHover} className={`nav-btn-link ${activeSection === 'contact' ? 'active' : ''}`}>Contact</button></li>
-          <li style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <li>
             <button onClick={() => { playClick(); handleGetStartedClick(); }} onMouseEnter={playHover} className="navbar-cta-btn">Get Started</button>
-            
-            {/* Audio Wave Visualizer Widget & Mute Button */}
-            <div 
-              className="navbar-audio-controls"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                marginLeft: '8px',
-                padding: '6px 12px',
-                borderLeft: '1px solid rgba(15, 23, 42, 0.1)',
-                borderRight: '1px solid rgba(15, 23, 42, 0.1)',
-                height: '32px'
-              }}
-            >
-              <div className={`navbar-audio-wave ${isSoundMuted ? 'muted' : 'playing'}`}>
-                <span className="wave-bar bar-1"></span>
-                <span className="wave-bar bar-2"></span>
-                <span className="wave-bar bar-3"></span>
-                <span className="wave-bar bar-4"></span>
-              </div>
-              <button 
-                onClick={() => { playClick(); handleMuteToggle(); }} 
-                onMouseEnter={playHover}
-                className="navbar-audio-btn" 
-                title={isSoundMuted ? "Unmute soundscape" : "Mute soundscape"}
-                style={{
-                  background: 'none',
-                  border: 'none',
-                  color: isSoundMuted ? '#64748b' : '#22d3ee',
-                  cursor: 'pointer',
-                  padding: '4px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '15px',
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                {isSoundMuted ? '🔇' : '🔊'}
-              </button>
-            </div>
           </li>
         </ul>
+
+        {/* Audio Wave Visualizer Widget & Mute Button (Rendered outside the hidden menu list so it is visible on mobile next to hamburger button) */}
+        <div 
+          className="navbar-audio-controls"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '8px',
+            marginLeft: 'auto',
+            marginRight: '16px',
+            padding: '6px 12px',
+            borderLeft: '1px solid rgba(15, 23, 42, 0.1)',
+            borderRight: '1px solid rgba(15, 23, 42, 0.1)',
+            height: '32px',
+            zIndex: 105
+          }}
+        >
+          <div className={`navbar-audio-wave ${isSoundMuted ? 'muted' : 'playing'}`}>
+            <span className="wave-bar bar-1"></span>
+            <span className="wave-bar bar-2"></span>
+            <span className="wave-bar bar-3"></span>
+            <span className="wave-bar bar-4"></span>
+          </div>
+          <button 
+            onClick={() => { playClick(); handleMuteToggle(); }} 
+            onMouseEnter={playHover}
+            className="navbar-audio-btn" 
+            title={isSoundMuted ? "Unmute soundscape" : "Mute soundscape"}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: isSoundMuted ? '#64748b' : '#22d3ee',
+              cursor: 'pointer',
+              padding: '4px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '15px',
+              transition: 'all 0.3s ease'
+            }}
+          >
+            {isSoundMuted ? '🔇' : '🔊'}
+          </button>
+        </div>
 
         {/* Mobile Hamburger Button */}
         <button 
